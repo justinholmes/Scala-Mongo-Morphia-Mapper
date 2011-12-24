@@ -43,6 +43,7 @@ abstract class MongoDB[T](implicit m: Manifest[T]) {
   
 
   val connection = connect
+    connect().ensureIndexes()
 
   def getById(id: String):Option[T] ={
       try{
